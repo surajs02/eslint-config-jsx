@@ -4,13 +4,14 @@
   "description": "ESLint shareable config for Suraj's JSX Codeguide",
   "main": "index.js",
   "scripts": {
-    "test": "echo test"
+    "test": "node ./test/runTest.js",
+    "testFile": "node ./test/testFile.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/surajs02/eslint-config-jsx.git"
   },
-  "author": "",
+  "author": "Suraj Sharma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/surajs02/eslint-config-jsx/issues"
@@ -29,5 +30,8 @@
     "@babel/eslint-parser": "^7.12.1",
     "@babel/eslint-plugin": "^7.12.1",
     "eslint-plugin-react": "^7.21.5"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
