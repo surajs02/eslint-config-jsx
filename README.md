@@ -7,18 +7,19 @@ Ensure eslint is installed before installing this package:
 ```bash
 npm install -D eslint eslint-config-jsx
 ```
+
 Install peer dependencies:
 ```bash
 npx install-peerdeps --dev eslint-config-jsx
 ```
 
 ## Usage
-Add this package's name to the `extends` section of your project's `.eslintrc` config file:
+Add this package's name to the `extends` section of your project's `.eslintrc.js` config file:
 
-```json
+```js
 {
-  "extends": ["eslint-config-jsx"],
-  "rules": {
+  'extends': ['eslint-config-jsx'],
+  'rules': {
     // Additional rules...
   }
 }
