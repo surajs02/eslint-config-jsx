@@ -36,6 +36,6 @@
   },
   "files": [
     "index.js",
-    ".eslint.js"
+    ".eslintrc.js"
   ]
 }
