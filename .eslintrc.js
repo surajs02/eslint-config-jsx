@@ -42,7 +42,7 @@ module.exports = {
         'no-console': ['warn', { 'allow': ['info', 'debug', 'warn', 'error'] }],
         'no-debugger': 1,
         'no-undef': 1,
-        'no-unused-vars': 1,
+        'no-unused-vars': ['warn', { 'args': 'all', 'argsIgnorePattern': '^__' }], // Unlint vars with '__' prefix.
         'semi-spacing': 1,
         'no-unneeded-ternary': ['warn'],
         'valid-jsdoc': [1, { 'requireReturn': false }],

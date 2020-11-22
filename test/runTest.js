@@ -10,12 +10,16 @@ const equal = (a, e, m) => strictEqual(a, e, `Test failed: ${m}`);
             overrideConfigFile: '../index.js',
         });
     
-        const res = (await eslint.lintFiles(['./testFile.js']))[0];
+        const res = (await eslint.lintFiles([
+            './testFile.js',
+            './testFizzBuzz.js',
+        ]));
         console.debug('Lint result', res);
-        const { errorCount, warningCount } = res;
-        equal(0, errorCount, `${errorCount} errors`);
-        equal(0, warningCount, `${warningCount} warnings`);
-    
+        res.forEach(({ errorCount, warningCount }) => {
+            equal(0, errorCount, `${errorCount} errors`);
+            equal(0, warningCount, `${warningCount} warnings`);
+        });
+
         console.debug('Test complete');
     } catch (e) {
         console.error('Test crashed', e);
