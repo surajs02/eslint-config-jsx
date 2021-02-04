@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES6",
+		"outDir": "out",
+		"lib": [
+			"ES2017",
+			"DOM",
+		],
+		"sourceMap": true,
+    	"inlineSources": true, // One file.
+		"removeComments": true,
+		"rootDir": "src",
+		"strict": true, // Enable all strict type-checking options.
+		"esModuleInterop": true, // Prefer default over * imports.
+	},
+	"exclude": [
+		"node_modules",
+	]
+}
+

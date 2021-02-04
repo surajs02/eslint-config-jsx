@@ -6,8 +6,11 @@
   "scripts": {
     "test": "node ./src/test/runTest.js",
     "testFile": "node ./src/test/testFile.js",
+    "compileTs": "tsc -p .",
+    "testTs": "npm run compileTs && node ./out/test/testTs.js",
     "preDeploy": "fail-on-git-dirty && npm test",
-    "deployPatch": "npm run preDeploy && npm version patch && npm publish"
+    "deployPatch": "npm run preDeploy && npm version patch && npm publish",
+    "h": "tsc --help"
   },
   "repository": {
     "type": "git",
@@ -37,5 +40,8 @@
   "files": [
     "index.js",
     ".eslintrc.js"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
 }

@@ -12,10 +12,11 @@ module.exports = {
     parserOptions: {
         requireConfigFile: false,
     },
+    plugins: ['@typescript-eslint'],
     env: {
-        'browser': true,
-        'node': true,
-        'es6': true,
+        browser: true,
+        node: true,
+        es6: true,
     },
     rules: {
         'prefer-const': ['warn'], // https://github.com/surajs02/jsx-codeguide#immutable-variables
@@ -25,20 +26,20 @@ module.exports = {
         'operator-linebreak': ['warn', 'before'], // https://github.com/surajs02/jsx-codeguide#operator-linebreaks
         'comma-dangle': ['warn', 'always-multiline'], // https://github.com/surajs02/jsx-codeguide#trailing-commas
         'comma-spacing': ['warn', { 'before': false, 'after': true }], // https://github.com/surajs02/jsx-codeguide#comma-spacing
-        'semi': ['warn', 'always' ], // https://github.com/surajs02/jsx-codeguide#semicolon-presence
+        semi: ['warn', 'always' ], // https://github.com/surajs02/jsx-codeguide#semicolon-presence
         'no-extra-semi': 1,
         'no-extra-parens': 0, // https://github.com/surajs02/jsx-codeguide#parentheses-presence
-        'indent': ['warn', 4], // https://github.com/surajs02/jsx-codeguide#indentation
+        indent: ['warn', 4], // https://github.com/surajs02/jsx-codeguide#indentation
         'brace-style': [1, '1tbs'], // https://github.com/surajs02/jsx-codeguide#curly-bracket-style
-        'curly': ['warn', 'multi'], // https://github.com/surajs02/jsx-codeguide#curly-bracket-presence
-        'quotes': ['warn', 'single'], // https://github.com/surajs02/jsx-codeguide#quote-presence
+        curly: ['warn', 'multi'], // https://github.com/surajs02/jsx-codeguide#curly-bracket-presence
+        quotes: ['warn', 'single'], // https://github.com/surajs02/jsx-codeguide#quote-presence
         'arrow-parens': ['warn', 'as-needed'], // https://github.com/surajs02/jsx-codeguide#arrow-parentheses-presence
         'arrow-body-style': ['warn', 'as-needed'], // https://github.com/surajs02/jsx-codeguide#arrow-body-brackets-presence
         'arrow-spacing': 1, // https://github.com/surajs02/jsx-codeguide#arrow-spacing
 
         // TODO: Doc
         'no-irregular-whitespace': 1,
-        'eqeqeq': ['warn', 'smart'],
+        eqeqeq: ['warn', 'smart'],
         'no-console': ['warn', { 'allow': ['info', 'debug', 'warn', 'error'] }],
         'no-debugger': 1,
         'no-undef': 1,
@@ -48,8 +49,10 @@ module.exports = {
         'valid-jsdoc': [1, { 'requireReturn': false }],
         'key-spacing': 1,
         'no-multi-spaces': 1,
-        'yoda': 1,
+        yoda: 1,
         'eol-last': 1,
+        'no-throw-literal': 'warn',
+        'valid-jsdoc': ['off'], // TS obsoletes most eslint jsdoc hence it is optional.
         
         // JSX.
         'react/prop-types': 1,
@@ -76,6 +79,21 @@ module.exports = {
         'react/jsx-uses-vars': 1,
         'react/no-unknown-property': 1,
         'react/jsx-fragments': ['warn', 'element'],
+
+        // TODO: TS -Doc.
+        // typedef: [true, 'call-signature', 'parameter', 'member-variable-declaration'],
+        '@typescript-eslint/naming-convention': [
+            'warn',
+            {
+                selector: ['parameter'],
+                format: ['strictCamelCase'], // No consecutive capitals for camelCase.
+                filter: {
+                    regex: '^__.*', // Allows multiple unused params as '__x'.
+                    match: false,
+                },
+            },
+        ],
+        '@typescript-eslint/semi': 'warn',
     },
     globals: { 
         '_': false,
