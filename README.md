@@ -31,4 +31,4 @@ Contributions should follow [JSX Codeguide] (styleguide changes can be requested
 
 New plugins should be installed locally & moved to the `peerDependencies`.
 
-[JSX Codeguide]: (https://github.com/surajs02/jsx-codeguide)
+[JSX Codeguide]: https://github.com/surajs02/jsx-codeguide
