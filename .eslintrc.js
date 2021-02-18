@@ -2,13 +2,14 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
     ],
     settings: {
-        react: {  
+        react: {
             version: 'detect',
         },
     },
-    parser: '@babel/eslint-parser',
+    parser: '@typescript-eslint/parser',
     parserOptions: {
         requireConfigFile: false,
     },
@@ -46,14 +47,13 @@ module.exports = {
         'no-unused-vars': ['warn', { 'args': 'all', 'argsIgnorePattern': '^__' }], // Unlint vars with '__' prefix.
         'semi-spacing': 1,
         'no-unneeded-ternary': ['warn'],
-        'valid-jsdoc': [1, { 'requireReturn': false }],
         'key-spacing': 1,
         'no-multi-spaces': 1,
         yoda: 1,
         'eol-last': 1,
         'no-throw-literal': 'warn',
         'valid-jsdoc': ['off'], // TS obsoletes most eslint jsdoc hence it is optional.
-        
+
         // JSX.
         'react/prop-types': 1,
         'react/no-direct-mutation-state': 1, // https://github.com/surajs02/jsx-codeguide#indirect-state-mutation
@@ -81,8 +81,7 @@ module.exports = {
         'react/jsx-fragments': ['warn', 'element'],
 
         // TODO: TS -Doc.
-        // typedef: [true, 'call-signature', 'parameter', 'member-variable-declaration'],
-        '@typescript-eslint/naming-convention': [
+        '@typescript-eslint/naming-convention': [ // Possible duplicate of custom `no-unused-vars`.
             'warn',
             {
                 selector: ['parameter'],
@@ -93,9 +92,9 @@ module.exports = {
                 },
             },
         ],
-        '@typescript-eslint/semi': 'warn',
+        '@typescript-eslint/no-explicit-any': 0,
     },
-    globals: { 
+    globals: {
         '_': false,
     },
 };
