@@ -9,11 +9,28 @@ const map = (t: (v: any, i: number) => any) => (a: any[]) => a.map(t);
 const comp = (...fs: ((...a: any) => any)[]) => (x: any) => fs.reverse().reduce((v, f) => f(v), x);
 
 const nums = [1, 2, 3];
-const words: {[id: string]: any} = {
+const words: { [id: string]: any } = {
     one: 'one',
     two: 'two',
     three: 'three',
 };
+
+if (nums[0] < nums[1]) console.debug('test');
+
+const cases = {
+    lowercase: 1,
+    UPPERCASE: 1,
+    snake_case: 1,
+    'kebab-case': 1,
+    class: 1, // Keyword.
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const snakeCase = cases['snake_case'];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const kebabCase = cases['kebab-case'];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const keyword = cases.class;
 
 console.debug(`nums=${arrToStr(nums)}`);
 console.debug(`words=${valuesO(words)}`);
