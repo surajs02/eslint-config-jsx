@@ -8,6 +8,15 @@ Ensure eslint is installed before installing this package:
 npm install -D eslint eslint-config-jsx
 ```
 
+Peer dependency details (i.e., all must be public hence available to eslint):
+- `eslint`: Base linting
+- `@babel/core`: ES6+ linting
+- `@babel/eslint-parser`: Base (non-experimental) JS linting
+- `@babel/eslint-plugin`: Experimental ES6+ linting
+- `eslint-plugin-react`: React linting
+- `@typescript-eslint/parser`: Base TS linting
+- `typescript-eslint/eslint-plugin`: TS linting
+
 Install peer dependencies:
 ```bash
 npx install-peerdeps --dev eslint-config-jsx

@@ -1,23 +1,24 @@
-module.exports = {
+const jsConfig = {
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
     ],
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+        requireConfigFile: false,
+    },
     settings: {
         react: {
             version: 'detect',
         },
     },
-    parser: '@typescript-eslint/parser',
-    parserOptions: {
-        requireConfigFile: false,
-    },
-    plugins: ['@typescript-eslint'],
     env: {
         browser: true,
         node: true,
         es6: true,
+    },
+    globals: {
+        '_': false,
     },
     rules: {
         'prefer-const': ['warn'], // https://github.com/surajs02/jsx-codeguide#immutable-variables
@@ -44,7 +45,9 @@ module.exports = {
         'no-console': ['warn', { 'allow': ['info', 'debug', 'warn', 'error'] }],
         'no-debugger': 1,
         'no-undef': 1,
+
         'no-unused-vars': ['warn', { 'args': 'all', 'argsIgnorePattern': '^__' }], // Unlint vars with '__' prefix.
+
         'semi-spacing': 1,
         'no-unneeded-ternary': ['warn'],
         'key-spacing': 1,
@@ -74,27 +77,68 @@ module.exports = {
         'react/display-name': 2,
         'react/jsx-curly-spacing': 1,
         'react/jsx-no-undef': 1,
-        'react/jsx-space-before-closing': 1, // TODO: Deprecated?
+        'react/jsx-space-before-closing': 1, // TODO: Fix deprecated.
         'react/jsx-tag-spacing': 1,
         'react/jsx-uses-vars': 1,
         'react/no-unknown-property': 1,
         'react/jsx-fragments': ['warn', 'element'],
-
-        // TODO: TS -Doc.
-        '@typescript-eslint/naming-convention': [ // Possible duplicate of custom `no-unused-vars`.
-            'warn',
-            {
-                selector: ['parameter'],
-                format: ['strictCamelCase'], // No consecutive capitals for camelCase.
-                filter: {
-                    regex: '^__.*', // Allows multiple unused params as '__x'.
-                    match: false,
-                },
-            },
-        ],
-        '@typescript-eslint/no-explicit-any': 0,
-    },
-    globals: {
-        '_': false,
     },
 };
+
+jsConfig.overrides = [
+    {
+        files: ['**/*.ts', '**/*.tsx'],
+        env: jsConfig.env,
+        extends: [
+            ...jsConfig.extends,
+            'plugin:@typescript-eslint/eslint-recommended',
+            'plugin:@typescript-eslint/recommended',
+        ],
+        parser: '@typescript-eslint/parser',
+        parserOptions: {
+            project: './tsconfig.json',
+        },
+        settings: jsConfig.settings,
+        plugins: ['@typescript-eslint'],
+        globals: jsConfig.globals,
+        rules: {
+            ...jsConfig.rules,
+
+            // TODO: TS - Doc.
+            '@typescript-eslint/naming-convention': [ // `no-unused-vars` for TS.
+                'warn',
+                {
+                    selector: ['parameter'],
+                    format: ['strictCamelCase'], // No consecutive capitals for camelCase.
+                    filter: {
+                        regex: '^__.*', // Allows multiple unused params as '__x'.
+                        match: false,
+                    },
+                },
+            ],
+            '@typescript-eslint/no-explicit-any': 0, // Allow explicit any.
+            '@typescript-eslint/no-floating-promises': ['warn', { ignoreVoid: true, ignoreIIFE: true }], // Most promises must be handled.
+            '@typescript-eslint/no-for-in-array': 1, // No iterating arrays like objects.
+            '@typescript-eslint/no-implicit-any-catch': ['warn', { allowExplicitAny: true }], // Catches must be explicit.
+            '@typescript-eslint/no-inferrable-types': 1, // Declared types must be non-inferable (reduces verbocity).
+            '@typescript-eslint/member-delimiter-style': ['warn', { // Interface members must end in ';' unless singleline.
+                multiline: {
+                    delimiter: 'semi',
+                    requireLast: true,
+                },
+                singleline: {
+                    delimiter: 'semi',
+                    requireLast: false,
+                },
+                multilineDetection: 'brackets',
+            }],
+            '@typescript-eslint/no-misused-new': 1, // No `new` interfaces/ctors.
+            '@typescript-eslint/no-require-imports': 0, // Allow `require` imports for js interop.
+            '@typescript-eslint/no-unnecessary-boolean-literal-compare': 1, // Disallow explicit literal boolean conditional aka no `a : boolean; a === true`.
+            '@typescript-eslint/no-unnecessary-condition': 1, // Disallow conditionals where the value is always truthy/falsy aka no `a : []; if (a)`.
+            '@typescript-eslint/no-unnecessary-type-assertion': 1, // Type casts must change type.
+        },
+    },
+],
+
+module.exports = jsConfig;

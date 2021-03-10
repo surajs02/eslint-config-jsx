@@ -9,7 +9,7 @@ const equal = (a, e, m) => strictEqual(a, e, `Test failed: ${m}`);
             cwd: __dirname,
             overrideConfigFile: '../index.js',
         });
-    
+
         const res = (await eslint.lintFiles([
             './testFile.js',
             './testFizzBuzz.js',
