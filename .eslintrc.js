@@ -33,7 +33,7 @@ const jsConfig = {
         'space-infix-ops': [WARN], // https://github.com/surajs02/jsx-codeguide#binary-operator-spacing
         'operator-linebreak': [WARN, 'before'], // https://github.com/surajs02/jsx-codeguide#operator-linebreaks
         'comma-dangle': [WARN, 'always-multiline'], // https://github.com/surajs02/jsx-codeguide#trailing-commas
-        'comma-spacing': [WARN, { 'before': false, 'after': true }], // https://github.com/surajs02/jsx-codeguide#comma-spacing
+        'comma-spacing': [WARN, { before: false, after: true }], // https://github.com/surajs02/jsx-codeguide#comma-spacing
         semi: [WARN, 'always' ], // https://github.com/surajs02/jsx-codeguide#semicolon-presence
         'no-extra-semi': [WARN],
         'no-extra-parens': [OFF], // https://github.com/surajs02/jsx-codeguide#parentheses-presence
@@ -65,10 +65,10 @@ const jsConfig = {
         'no-use-before-define': [WARN],
         'no-useless-constructor': [WARN],
         'require-await': [WARN],
-        'return-await': [WARN],
+        'no-return-await': [WARN],
         'object-curly-spacing': [WARN, 'always'],
 
-        'no-unused-vars': [WARN, { 'args': 'all', 'argsIgnorePattern': '^__' }], // Unlint vars with '__' prefix.
+        'no-unused-vars': [WARN, { args: 'all', argsIgnorePattern: '^__' }], // Unlint vars with '__' prefix.
 
         'semi-spacing': [WARN],
         'no-unneeded-ternary': [WARN],
@@ -93,7 +93,7 @@ const jsConfig = {
         'react/sort-comp': [WARN], // https://github.com/surajs02/jsx-codeguide#ordered-lifecycle-methods
 
         // TODO: JSX - Doc.
-        'react/jsx-max-props-per-line': [WARN, { 'maximum': 2 }],
+        'react/jsx-max-props-per-line': [WARN, { maximum: 2 }],
         'react/react-in-jsx-scope': [WARN],
         'react/jsx-uses-react': [WARN],
         'react/display-name': [ERROR],
@@ -130,10 +130,14 @@ const INCOMPAT_JS_RULES = [
     'object-curly-spacing',
     'quotes',
     'require-await',
-    'return-await',
+    'no-return-await',
     'semi',
     'space-infix-ops',
 ];
+const COMPAT_JS_RULES = Object.keys(jsConfig.rules).reduce(
+    (a, v) => INCOMPAT_JS_RULES.includes(v) ? a : { ...a, [v]: jsConfig.rules[v] },
+    {}
+);
 const JS_TO_TS_RULE_NAMES = {
     'no-return-await': 'return-await',
 };
@@ -155,7 +159,7 @@ jsConfig.overrides = [
         plugins: ['@typescript-eslint'],
         globals: jsConfig.globals,
         rules: {
-            ...jsConfig.rules, // Add ts rules atop js since ts supersets js.
+            ...COMPAT_JS_RULES, // Add ts rules atop compat js since ts supersets js.
 
             // TODO: TS extensions - Doc.
             // Fix incompat js rules for ts.
@@ -233,5 +237,7 @@ jsConfig.overrides = [
         },
     },
 ];
+
+// console.log(jsConfig.overrides[0].rules)
 
 module.exports = jsConfig;
