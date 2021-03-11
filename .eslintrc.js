@@ -446,7 +446,9 @@ const jsConfig = {
     },
 };
 
+// NOTE: Will be converted from js to ts rules (e.g., `brace-style` => `@typescript-eslint/brace-style`).
 const INCOMPAT_JS_RULES = [
+    // #region TS Extensions (i.e., compat for js rules).
     'brace-style',
     'comma-dangle',
     'comma-spacing',
@@ -456,22 +458,33 @@ const INCOMPAT_JS_RULES = [
     'indent',
     'init-declarations',
     'keyword-spacing',
+    // lines-between-class-members
     'no-array-constructor',
     'no-dupe-class-members',
     'no-duplicate-imports',
+    // no-empty-function
     'no-extra-parens',
     'no-extra-semi',
+    // no-implied-eval
+    // no-invalid-this
+    // no-loop-func
+    // no-loss-of-precision
+    // no-magic-numbers
     'no-redeclare',
     'no-shadow',
     'no-throw-literal',
+    // no-unused-expressions
     'no-unused-vars',
     'no-use-before-define',
+    // no-useless-constructor
     'object-curly-spacing',
     'quotes',
     'require-await',
     'no-return-await',
     'semi',
+    // space-before-function-paren
     'space-infix-ops',
+    // #endregion
 ];
 const COMPAT_JS_RULES = Object.keys(jsConfig.rules).reduce(
     (a, v) => INCOMPAT_JS_RULES.includes(v) ? a : { ...a, [v]: jsConfig.rules[v] },
@@ -512,22 +525,21 @@ jsConfig.overrides = [
             ),
 
             // TODO: TS - Doc.
-            '@typescript-eslint/naming-convention': [ // TS version of `no-unused-vars`.
-                WARN,
-                {
-                    selector: ['parameter'],
-                    format: ['strictCamelCase'], // No consecutive capitals for camelCase.
-                    filter: {
-                        regex: '^__.*', // Allows multiple unused params as '__x'.
-                        match: false,
-                    },
-                },
-            ],
-            '@typescript-eslint/no-explicit-any': [OFF], // Allow explicit any.
-            '@typescript-eslint/no-floating-promises': [WARN, { ignoreVoid: true, ignoreIIFE: true }], // Most promises must be handled.
-            '@typescript-eslint/no-for-in-array': [WARN], // No iterating arrays like objects.
-            '@typescript-eslint/no-implicit-any-catch': [WARN, { allowExplicitAny: true }], // Catches must be explicit.
-            '@typescript-eslint/no-inferrable-types': [WARN], // Declared types must be non-inferable (reduces verbocity).
+            // #region TS.
+            // @typescript-eslint/adjacent-overload-signatures
+            // @typescript-eslint/array-type
+            // @typescript-eslint/await-thenable
+            // @typescript-eslint/ban-ts-comment
+            // @typescript-eslint/ban-tslint-comment
+            // @typescript-eslint/ban-types
+            // @typescript-eslint/class-literal-property-style
+            // @typescript-eslint/consistent-indexed-object-style
+            // @typescript-eslint/consistent-type-assertions
+            // @typescript-eslint/consistent-type-definitions
+            // @typescript-eslint/consistent-type-imports
+            // @typescript-eslint/explicit-function-return-type
+            // @typescript-eslint/explicit-member-accessibility
+            // @typescript-eslint/explicit-module-boundary-types
             '@typescript-eslint/member-delimiter-style': [WARN, { // Interface members must end in ';' unless singleline.
                 multiline: {
                     delimiter: 'semi',
@@ -539,17 +551,77 @@ jsConfig.overrides = [
                 },
                 multilineDetection: 'brackets',
             }],
+            // @typescript-eslint/member-ordering
+            // @typescript-eslint/method-signature-style
+            '@typescript-eslint/naming-convention': [ // TS version of `no-unused-vars`.
+                WARN,
+                {
+                    selector: ['parameter'],
+                    format: ['strictCamelCase'], // No consecutive capitals for camelCase.
+                    filter: {
+                        regex: '^__.*', // Allows multiple unused params as '__x'.
+                        match: false,
+                    },
+                },
+            ],
+            // @typescript-eslint/no-base-to-string
+            // @typescript-eslint/no-confusing-non-null-assertion
+            // @typescript-eslint/no-confusing-void-expression
+            // @typescript-eslint/no-dynamic-delete
+            // @typescript-eslint/no-empty-interface
+            '@typescript-eslint/no-explicit-any': [OFF], // Allow explicit any.
+            // @typescript-eslint/no-extra-non-null-assertion
+            // @typescript-eslint/no-extraneous-class
+            '@typescript-eslint/no-floating-promises': [WARN, { ignoreVoid: true, ignoreIIFE: true }], // Most promises must be handled.
+            '@typescript-eslint/no-for-in-array': [WARN], // No iterating arrays like objects.
+            '@typescript-eslint/no-implicit-any-catch': [WARN, { allowExplicitAny: true }], // Catches must be explicit.
+            '@typescript-eslint/no-inferrable-types': [WARN], // Declared types must be non-inferable (reduces verbocity).
+            // @typescript-eslint/no-invalid-void-type
             '@typescript-eslint/no-misused-new': [WARN], // No `new` interfaces/ctors.
+            // @typescript-eslint/no-misused-promises
+            // @typescript-eslint/no-namespace
+            // @typescript-eslint/no-non-null-asserted-optional-chain
+            // @typescript-eslint/no-non-null-assertion
+            // @typescript-eslint/no-parameter-properties
             '@typescript-eslint/no-require-imports': [OFF], // Allow `require` imports for js interop.
+            // @typescript-eslint/no-this-alias
+            // @typescript-eslint/no-type-alias
+
             // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals..
             '@typescript-eslint/no-unnecessary-boolean-literal-compare': [WARN], // Disallow explicit literal boolean conditional aka no `a : boolean; a === true`.
+
             '@typescript-eslint/no-unnecessary-condition': [WARN], // Disallow conditionals where the value is always truthy/falsy aka no `a : []; if (a)`.
+            // @typescript-eslint/no-unnecessary-qualifier
+            // @typescript-eslint/no-unnecessary-type-arguments
             '@typescript-eslint/no-unnecessary-type-assertion': [WARN], // Type casts must change type.
+            // @typescript-eslint/no-unnecessary-type-constraint
+            // @typescript-eslint/no-unsafe-assignment
+            // @typescript-eslint/no-unsafe-call
+            // @typescript-eslint/no-unsafe-member-access
+            // @typescript-eslint/no-unsafe-return
+            // @typescript-eslint/no-var-requires
             '@typescript-eslint/non-nullable-type-assertion-style': [WARN], // Disallow using casting to non-null aka use `maybe!` over `maybe as string`.
             '@typescript-eslint/prefer-as-const': [WARN], // TS version of 'prefer-const'.
+            // @typescript-eslint/prefer-enum-initializers
             '@typescript-eslint/prefer-for-of': [WARN], // Disallow verbose obsolete index usage.
+            // @typescript-eslint/prefer-function-type
             '@typescript-eslint/prefer-includes': [WARN], // Disallow obsolete `indexOf`.
+            // @typescript-eslint/prefer-literal-enum-member
+            // @typescript-eslint/prefer-namespace-keyword
+            // @typescript-eslint/prefer-nullish-coalescing
+            // @typescript-eslint/prefer-optional-chain
             '@typescript-eslint/prefer-readonly': [WARN], // Members only mutated by ctor must be readonly.
+            // @typescript-eslint/prefer-readonly-parameter-types
+            // @typescript-eslint/prefer-reduce-type-parameter
+            // @typescript-eslint/prefer-regexp-exec
+            // @typescript-eslint/prefer-string-starts-ends-with
+            // @typescript-eslint/prefer-ts-expect-error
+            // @typescript-eslint/promise-function-async
+            // @typescript-eslint/require-array-sort-compare
+            // @typescript-eslint/restrict-plus-operands
+            // @typescript-eslint/restrict-template-expressions
+            // @typescript-eslint/sort-type-union-intersection-members
+
             // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals..
             '@typescript-eslint/strict-boolean-expressions': [WARN, {
                 allowString: false,
@@ -561,6 +633,9 @@ jsConfig.overrides = [
                 allowAny: false,
                 allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
             }],
+
+            // @typescript-eslint/switch-exhaustiveness-check
+            // @typescript-eslint/triple-slash-reference
             '@typescript-eslint/type-annotation-spacing': [WARN, {
                 // SOURCE: https://github.com/surajs02/jsx-codeguide#arrow-spacing.
                 before: true,
@@ -572,7 +647,10 @@ jsConfig.overrides = [
                     },
                 },
             }],
+            // @typescript-eslint/typedef
             '@typescript-eslint/unbound-method': [WARN], // Disallow calling unbound methods by ref as they're scopeless (aka terrible for functional).
+            // @typescript-eslint/unified-signature
+            // #endregion
         },
     },
 ];
