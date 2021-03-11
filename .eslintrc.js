@@ -419,7 +419,6 @@ const jsConfig = {
         'no-use-before-define': [WARN],
         'no-useless-constructor': [WARN],
         'require-await': [WARN],
-        'no-return-await': [WARN],
         'object-curly-spacing': [WARN, 'always'],
         'no-unused-vars': [WARN, { args: 'all', argsIgnorePattern: '^__' }], // Unlint vars with '__' prefix.
         'semi-spacing': [WARN],
