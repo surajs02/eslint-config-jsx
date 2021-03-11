@@ -627,6 +627,4 @@ jsConfig.overrides = [
     },
 ];
 
-// console.log(jsConfig.overrides[0].rules)
-
 module.exports = jsConfig;
