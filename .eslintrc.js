@@ -198,7 +198,7 @@ const jsConfig = {
         // id-match
         // implicit-arrow-linebreak
         indent: [WARN, 4], // SOURCE: https://github.com/surajs02/jsx-codeguide#indentation.
-        // jsx-quotes
+        'jsx-quotes': [WARN, 'prefer-single'], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-quotes.
         // key-spacing
         // keyword-spacing
         // line-comment-position
@@ -304,25 +304,102 @@ const jsConfig = {
         // yield-star-spacing
         // #endregion
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        // #region React.
+        // react/boolean-prop-naming
+        // react/button-has-type
+        // react/default-props-match-prop-types
+        // react/destructuring-assignment
+        // react/display-name
+        // react/forbid-component-props
+        // react/forbid-dom-props
+        // react/forbid-elements
+        // react/forbid-foreign-prop-types
+        // react/forbid-prop-types
+        // react/function-component-definition
+        // react/no-access-state-in-setstate
+        // react/no-adjacent-inline-elements
+        // react/no-array-index-key
+        // react/no-children-prop
+        'react/no-danger': [WARN],
+        // react/no-danger-with-children
+        // react/no-deprecated
+        // react/no-did-mount-set-state
+        // react/no-did-update-set-state
+        'react/no-direct-mutation-state': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#indirect-state-mutation.
+        // react/no-find-dom-node
+        // react/no-is-mounted
+        // react/no-multi-comp
+        // react/no-redundant-should-component-update
+        // react/no-render-return-value
+        // react/no-set-state
+        // react/no-string-refs
+        // react/no-this-in-sfc
+        // react/no-typos
+        // react/no-unescaped-entities
+        // react/no-unknown-property
+        // react/no-unsafe
+        // react/no-unused-prop-types
+        // react/no-unused-state
+        // react/no-will-update-set-state
+        // react/prefer-es6-class
+        // react/prefer-read-only-props
+        // react/prefer-stateless-function
+        'react/prop-types': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-types.
+        // react/react-in-jsx-scope
+        // react/require-default-props
+        // react/require-optimization
+        // react/require-render-return
+        'react/self-closing-comp': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#closing-tag-presence.
+        'react/sort-comp': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#ordered-lifecycle-methods.
+        // react/sort-prop-types
+        // react/state-in-constructor
+        // react/static-property-placement
+        // react/style-prop-object
+        // react/void-dom-elements-no-children
+        // #endregion
 
-        // TODO: Doc
+        // #region JSX.
+        'react/jsx-boolean-value': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-attribute.
+        // react/jsx-child-element-spacing
+        // react/jsx-closing-bracket-location
+        // react/jsx-closing-tag-location
+        'react/jsx-curly-brace-presence': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-curly-brackets-presence.
+        // react/jsx-curly-newline
+        // react/jsx-curly-spacing
+        // react/jsx-equals-spacing
+        // react/jsx-filename-extension
+        // react/jsx-first-prop-new-line
+        // react/jsx-fragments
+        // react/jsx-handler-names
+        // react/jsx-indent
+        'react/jsx-indent-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
+        'react/jsx-key': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
+        // react/jsx-max-depth
+        // react/jsx-max-props-per-line
+        // react/jsx-newline
+        // react/jsx-no-bind
+        // react/jsx-no-comment-textnodes
+        // react/jsx-no-constructed-context-values
+        'react/jsx-no-duplicate-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
+        // react/jsx-no-literals
+        // react/jsx-no-script-url
+        // react/jsx-no-target-blank
+        // react/jsx-no-undef
+        // react/jsx-no-useless-fragment
+        // react/jsx-one-expression-per-line
+        // react/jsx-pascal-case
+        // react/jsx-props-no-multi-spaces
+        // react/jsx-props-no-spreading
+        // react/jsx-sort-default-props
+        // react/jsx-sort-props
+        // react/jsx-space-before-closing
+        // react/jsx-tag-spacing
+        // react/jsx-uses-react
+        // react/jsx-uses-vars
+        // react/jsx-wrap-multiline
+        // #endregion
+
+        // TODO: Doc.
         'no-irregular-whitespace': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
         eqeqeq: [WARN, 'smart'],
         'default-param-last': [WARN], // Avoids verbose badly designed sigs hence less verbose calls.
@@ -344,9 +421,7 @@ const jsConfig = {
         'require-await': [WARN],
         'no-return-await': [WARN],
         'object-curly-spacing': [WARN, 'always'],
-
         'no-unused-vars': [WARN, { args: 'all', argsIgnorePattern: '^__' }], // Unlint vars with '__' prefix.
-
         'semi-spacing': [WARN],
         'no-unneeded-ternary': [WARN],
         'key-spacing': [WARN],
@@ -355,19 +430,6 @@ const jsConfig = {
         yoda: [WARN],
         'eol-last': [WARN],
         'valid-jsdoc': [OFF], // TS obsoletes most eslint jsdoc hence it is optional.
-
-        // JSX.
-        'react/prop-types': [WARN],
-        'react/no-direct-mutation-state': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#indirect-state-mutation.
-        'react/no-danger': [WARN],
-        'react/jsx-boolean-value': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-attribute.
-        'jsx-quotes': [WARN, 'prefer-single'], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-quotes.
-        'react/jsx-curly-brace-presence': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-curly-brackets-presence.
-        'react/jsx-indent-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
-        'react/jsx-no-duplicate-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
-        'react/jsx-key': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
-        'react/self-closing-comp': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#closing-tag-presence.
-        'react/sort-comp': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#ordered-lifecycle-methods.
 
         // TODO: JSX - Doc.
         'react/jsx-max-props-per-line': [WARN, { maximum: 2 }],
