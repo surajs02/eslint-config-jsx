@@ -27,26 +27,303 @@ const jsConfig = {
         '_': false,
     },
     rules: {
-        'prefer-const': [WARN], // https://github.com/surajs02/jsx-codeguide#immutable-variables
-        'no-else-return': [WARN], // https://github.com/surajs02/jsx-codeguide#simple-control-paths
-        'space-unary-ops': [WARN], // https://github.com/surajs02/jsx-codeguide#unary-operator-spacing
-        'space-infix-ops': [WARN], // https://github.com/surajs02/jsx-codeguide#binary-operator-spacing
-        'operator-linebreak': [WARN, 'before'], // https://github.com/surajs02/jsx-codeguide#operator-linebreaks
-        'comma-dangle': [WARN, 'always-multiline'], // https://github.com/surajs02/jsx-codeguide#trailing-commas
-        'comma-spacing': [WARN, { before: false, after: true }], // https://github.com/surajs02/jsx-codeguide#comma-spacing
-        semi: [WARN, 'always' ], // https://github.com/surajs02/jsx-codeguide#semicolon-presence
+        // #region Possible Errors.
+        // for-direction
+        // getter-return
+        // no-async-promise-executor
+        // no-await-in-loop
+        // no-compare-neg-zero
+        // no-cond-assign
+        // no-console
+        // no-constant-condition
+        // no-control-regex
+        // no-debugger
+        // no-dupe-args
+        // no-dupe-else-if
+        // no-dupe-keys
+        // no-duplicate-case
+        // no-empty
+        // no-empty-character-class
+        // no-ex-assign
+        // no-extra-boolean-cast
+        'no-extra-parens': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#parentheses-presence.
         'no-extra-semi': [WARN],
-        'no-extra-parens': [OFF], // https://github.com/surajs02/jsx-codeguide#parentheses-presence
-        indent: [WARN, 4], // https://github.com/surajs02/jsx-codeguide#indentation
-        'brace-style': [WARN, '1tbs'], // https://github.com/surajs02/jsx-codeguide#curly-bracket-style
-        curly: [WARN, 'multi'], // https://github.com/surajs02/jsx-codeguide#curly-bracket-presence
-        quotes: [WARN, 'single'], // https://github.com/surajs02/jsx-codeguide#quote-presence
-        'arrow-parens': [WARN, 'as-needed'], // https://github.com/surajs02/jsx-codeguide#arrow-parentheses-presence
-        'arrow-body-style': [WARN, 'as-needed'], // https://github.com/surajs02/jsx-codeguide#arrow-body-brackets-presence
-        'arrow-spacing': [WARN], // https://github.com/surajs02/jsx-codeguide#arrow-spacing
+        // no-func-assign
+        // no-import-assign
+        // no-inner-declarations
+        // no-invalid-regexp
+        // no-irregular-whitespace
+        // no-loss-of-precision
+        // no-misleading-character-class
+        // no-obj-calls
+        // no-promise-executor-return
+        // no-prototype-builtins
+        // no-regex-spaces
+        // no-setter-return
+        // no-sparse-arrays
+        // no-template-curly-in-string
+        // no-unexpected-multiline
+        // no-unreachable
+        // no-unreachable-loop
+        // no-unsafe-finally
+        // no-unsafe-negation
+        // no-unsafe-optional-chaining
+        // no-useless-backreference
+        // require-atomic-updates
+        // use-isnan
+        // valid-typeof
+        // #endregion
+
+        // #region Best practices.
+        // block-scoped-var
+        // class-methods-use-this
+        // complexity
+        // consistent-return
+        curly: [WARN, 'multi'], // SOURCE: https://github.com/surajs02/jsx-codeguide#curly-bracket-presence.
+        // default-case
+        // default-case-last
+        // default-param-last
+        // dot-location
+        // dot-notation
+        // eqeqeq
+        // grouped-accessor-pairs
+        // guard-for-in
+        // max-classes-per-file
+        // no-alert
+        // no-caller
+        // no-case-declarations
+        // no-constructor-return
+        // no-div-regex
+        'no-else-return': [WARN], // SOURCE: SOURCE: https://github.com/surajs02/jsx-codeguide#simple-control-paths..
+        // no-empty-function
+        // no-empty-pattern
+        // no-eq-null
+        // no-eval
+        // no-extend-native
+        // no-extra-bind
+        // no-extra-label
+        // no-fallthrough
+        // no-floating-decimal
+        // no-global-assign
+        // no-implicit-coercion
+        // no-implicit-globals
+        // no-implied-eval
+        // no-invalid-this
+        // no-iterator
+        // no-labels
+        // no-lone-blocks
+        // no-loop-func
+        // no-magic-numbers
+        // no-multi-spaces
+        // no-multi-str
+        // no-new
+        // no-new-func
+        // no-new-wrappers
+        // no-nonoctal-decimal-escape
+        // no-octal
+        // no-octal-escape
+        // no-param-reassign
+        // no-proto
+        // no-redeclare
+        // no-restricted-properties
+        // no-return-assign
+        // no-return-await
+        // no-script-url
+        // no-self-assign
+        // no-self-compare
+        // no-sequences
+        // no-throw-literal
+        // no-unmodified-loop-condition
+        // no-unused-expressions
+        // no-unused-labels
+        // no-useless-call
+        // no-useless-catch
+        // no-useless-concat
+        // no-useless-escape
+        // no-useless-return
+        // no-void
+        // no-warning-comments
+        // no-with
+        // prefer-named-capture-group
+        // prefer-promise-reject-errors
+        // prefer-regex-literals
+        // radix
+        // require-await
+        // require-unicode-regexp
+        // vars-on-top
+        // wrap-iife
+        // yoda
+        // #endregion
+
+        // #region Strict Mode.
+        // strict
+        // #endregion
+
+        // #region Variables.
+        // init-declarations
+        // no-delete-var
+        // no-label-var
+        // no-restricted-globals
+        // no-shadow
+        // no-shadow-restricted-names
+        // no-undef
+        // no-undef-init
+        // no-undefined
+        // no-unused-vars
+        // no-use-before-define
+        // #endregion
+
+        // #region Stylistic.
+        // array-bracket-newline
+        // array-bracket-spacing
+        // array-element-newline
+        // block-spacing
+        'brace-style': [WARN, '1tbs'], // SOURCE: https://github.com/surajs02/jsx-codeguide#curly-bracket-style.
+        // camelcase
+        // capitalized-comments
+        'comma-dangle': [WARN, 'always-multiline'], // SOURCE: https://github.com/surajs02/jsx-codeguide#trailing-commas.
+        'comma-spacing': [WARN, { before: false, after: true }], // SOURCE: https://github.com/surajs02/jsx-codeguide#comma-spacing.
+        // comma-style
+        // computed-property-spacing
+        // consistent-this
+        // eol-last
+        // func-call-spacing
+        // func-name-matching
+        // func-names
+        // func-style
+        // function-call-argument-newline
+        // function-paren-newline
+        // id-denylist
+        // id-length
+        // id-match
+        // implicit-arrow-linebreak
+        indent: [WARN, 4], // SOURCE: https://github.com/surajs02/jsx-codeguide#indentation.
+        // jsx-quotes
+        // key-spacing
+        // keyword-spacing
+        // line-comment-position
+        // linebreak-style
+        // lines-around-comment
+        // lines-between-class-members
+        // max-depth
+        // max-len
+        // max-lines
+        // max-lines-per-function
+        // max-nested-callbacks
+        // max-params
+        // max-statements
+        // max-statements-per-line
+        // multiline-comment-style
+        // multiline-ternary
+        // new-cap
+        // new-parens
+        // newline-per-chained-call
+        // no-array-constructor
+        // no-bitwise
+        // no-continue
+        // no-inline-comments
+        // no-lonely-if
+        // no-mixed-operators
+        // no-mixed-spaces-and-tabs
+        // no-multi-assign
+        // no-multiple-empty-lines
+        // no-negated-condition
+        // no-nested-ternary
+        // no-new-object
+        // no-plusplus
+        // no-restricted-syntax
+        // no-tabs
+        // no-ternary
+        // no-trailing-spaces
+        // no-underscore-dangle
+        // no-unneeded-ternary
+        // no-whitespace-before-property
+        // nonblock-statement-body-position
+        // object-curly-newline
+        // object-curly-spacing
+        // object-property-newline
+        // one-var
+        // one-var-declaration-per-line
+        // operator-assignment
+        'operator-linebreak': [WARN, 'before'], // SOURCE: https://github.com/surajs02/jsx-codeguide#operator-linebreaks.
+        // padded-blocks
+        // padding-line-between-statements
+        // prefer-exponentiation-operator
+        // prefer-object-spread
+        // quote-props
+        quotes: [WARN, 'single'], // SOURCE: https://github.com/surajs02/jsx-codeguide#quote-presence.
+        semi: [WARN, 'always' ], // SOURCE: https://github.com/surajs02/jsx-codeguide#semicolon-presence.
+        // semi-spacing
+        // semi-style
+        // sort-keys
+        // sort-vars
+        // space-before-blocks
+        // space-before-function-paren
+        // space-in-parens
+        'space-infix-ops': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#binary-operator-spacing.
+        'space-unary-ops': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unary-operator-spacing.
+        // spaced-comment
+        // switch-colon-spacing
+        // template-tag-spacing
+        // unicode-bom
+        // wrap-regex
+        // #endregion
+
+        // #region ECMAScript 6.
+        'arrow-body-style': [WARN, 'as-needed'], // SOURCE: https://github.com/surajs02/jsx-codeguide#arrow-body-brackets-presence.
+        'arrow-parens': [WARN, 'as-needed'], // SOURCE: https://github.com/surajs02/jsx-codeguide#arrow-parentheses-presence.
+        'arrow-spacing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#arrow-spacing.
+        // constructor-super
+        // generator-star-spacing
+        // no-class-assign
+        // no-confusing-arrow
+        // no-const-assign
+        // no-dupe-class-members
+        // no-duplicate-imports
+        // no-new-symbol
+        // no-restricted-exports
+        // no-restricted-imports
+        // no-this-before-super
+        // no-useless-computed-key
+        // no-useless-constructor
+        // no-useless-rename
+        // no-var
+        // object-shorthand
+        // prefer-arrow-callback
+        'prefer-const': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#immutable-variables.
+        // prefer-destructuring
+        // prefer-numeric-literals
+        // prefer-rest-params
+        // prefer-spread
+        // prefer-template
+        // require-yield
+        // rest-spread-spacing
+        // sort-imports
+        // symbol-description
+        // template-curly-spacing
+        // yield-star-spacing
+        // #endregion
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         // TODO: Doc
-        'no-irregular-whitespace': [WARN],
+        'no-irregular-whitespace': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
         eqeqeq: [WARN, 'smart'],
         'default-param-last': [WARN], // Avoids verbose badly designed sigs hence less verbose calls.
         'dot-notation': [WARN, { allowKeywords: true, allowPattern: '.*[_|-].*' }], // Prefer dot notation (exceptions: kebab-case & snake_case)
@@ -81,16 +358,16 @@ const jsConfig = {
 
         // JSX.
         'react/prop-types': [WARN],
-        'react/no-direct-mutation-state': [WARN], // https://github.com/surajs02/jsx-codeguide#indirect-state-mutation
+        'react/no-direct-mutation-state': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#indirect-state-mutation.
         'react/no-danger': [WARN],
-        'react/jsx-boolean-value': [WARN], // https://github.com/surajs02/jsx-codeguide#implicit-boolean-attribute
-        'jsx-quotes': [WARN, 'prefer-single'], // https://github.com/surajs02/jsx-codeguide#attribute-quotes
-        'react/jsx-curly-brace-presence': [WARN], // https://github.com/surajs02/jsx-codeguide#attribute-curly-brackets-presence
-        'react/jsx-indent-props': [WARN], // https://github.com/surajs02/jsx-codeguide#attribute-indentation
-        'react/jsx-no-duplicate-props': [WARN], // https://github.com/surajs02/jsx-codeguide#unique-attributes
-        'react/jsx-key': [WARN], // https://github.com/surajs02/jsx-codeguide#unique-attributes
-        'react/self-closing-comp': [WARN], // https://github.com/surajs02/jsx-codeguide#closing-tag-presence
-        'react/sort-comp': [WARN], // https://github.com/surajs02/jsx-codeguide#ordered-lifecycle-methods
+        'react/jsx-boolean-value': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-attribute.
+        'jsx-quotes': [WARN, 'prefer-single'], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-quotes.
+        'react/jsx-curly-brace-presence': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-curly-brackets-presence.
+        'react/jsx-indent-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
+        'react/jsx-no-duplicate-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
+        'react/jsx-key': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
+        'react/self-closing-comp': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#closing-tag-presence.
+        'react/sort-comp': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#ordered-lifecycle-methods.
 
         // TODO: JSX - Doc.
         'react/jsx-max-props-per-line': [WARN, { maximum: 2 }],
@@ -202,7 +479,7 @@ jsConfig.overrides = [
             }],
             '@typescript-eslint/no-misused-new': [WARN], // No `new` interfaces/ctors.
             '@typescript-eslint/no-require-imports': [OFF], // Allow `require` imports for js interop.
-            // https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals.
+            // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals..
             '@typescript-eslint/no-unnecessary-boolean-literal-compare': [WARN], // Disallow explicit literal boolean conditional aka no `a : boolean; a === true`.
             '@typescript-eslint/no-unnecessary-condition': [WARN], // Disallow conditionals where the value is always truthy/falsy aka no `a : []; if (a)`.
             '@typescript-eslint/no-unnecessary-type-assertion': [WARN], // Type casts must change type.
@@ -211,7 +488,7 @@ jsConfig.overrides = [
             '@typescript-eslint/prefer-for-of': [WARN], // Disallow verbose obsolete index usage.
             '@typescript-eslint/prefer-includes': [WARN], // Disallow obsolete `indexOf`.
             '@typescript-eslint/prefer-readonly': [WARN], // Members only mutated by ctor must be readonly.
-            // https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals.
+            // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals..
             '@typescript-eslint/strict-boolean-expressions': [WARN, {
                 allowString: false,
                 allowNumber: false,
@@ -223,7 +500,7 @@ jsConfig.overrides = [
                 allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
             }],
             '@typescript-eslint/type-annotation-spacing': [WARN, {
-                // https://github.com/surajs02/jsx-codeguide#arrow-spacing
+                // SOURCE: https://github.com/surajs02/jsx-codeguide#arrow-spacing.
                 before: true,
                 after: true,
                 overrides: {
