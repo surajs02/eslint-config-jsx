@@ -34,7 +34,7 @@ const jsConfig = {
         // no-await-in-loop
         // no-compare-neg-zero
         // no-cond-assign
-        'no-console': [WARN, { 'allow': ['info', 'debug', 'warn', 'error'] }], // SOURCE: https://github.com/surajs02/jsx-codeguide#essential-console-logs
+        'no-console': [WARN, { allow: ['info', 'debug', 'warn', 'error'] }], // SOURCE: https://github.com/surajs02/jsx-codeguide#essential-console-logs
         // no-constant-condition
         // no-control-regex
         'no-debugger': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#conditional-debugger.
@@ -313,7 +313,7 @@ const jsConfig = {
         // react/button-has-type
         // react/default-props-match-prop-types
         // react/destructuring-assignment
-        // react/display-name
+        'react/display-name': [ERROR], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
         // react/forbid-component-props
         // react/forbid-dom-props
         // react/forbid-elements
@@ -324,7 +324,7 @@ const jsConfig = {
         // react/no-adjacent-inline-elements
         // react/no-array-index-key
         // react/no-children-prop
-        'react/no-danger': [WARN],
+        'react/no-danger': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#safe-attributes.
         // react/no-danger-with-children
         // react/no-deprecated
         // react/no-did-mount-set-state
@@ -340,7 +340,7 @@ const jsConfig = {
         // react/no-this-in-sfc
         // react/no-typos
         // react/no-unescaped-entities
-        // react/no-unknown-property
+        'react/no-unknown-property': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
         // react/no-unsafe
         // react/no-unused-prop-types
         // react/no-unused-state
@@ -349,7 +349,7 @@ const jsConfig = {
         // react/prefer-read-only-props
         // react/prefer-stateless-function
         'react/prop-types': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-types.
-        // react/react-in-jsx-scope
+        'react/react-in-jsx-scope': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
         // react/require-default-props
         // react/require-optimization
         // react/require-render-return
@@ -369,17 +369,17 @@ const jsConfig = {
         // react/jsx-closing-tag-location
         'react/jsx-curly-brace-presence': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-curly-brackets-presence.
         // react/jsx-curly-newline
-        // react/jsx-curly-spacing
+        'react/jsx-curly-spacing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#jsx-curly-bracket-spacing
         // react/jsx-equals-spacing
         // react/jsx-filename-extension
         // react/jsx-first-prop-new-line
-        // react/jsx-fragments
+        'react/jsx-fragments': [WARN, 'element'], // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-fragments.
         // react/jsx-handler-names
         // react/jsx-indent
         'react/jsx-indent-props': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
         'react/jsx-key': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#unique-attributes.
         // react/jsx-max-depth
-        // react/jsx-max-props-per-line
+        'react/jsx-max-props-per-line': [WARN, { maximum: 2 }], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-indentation.
         // react/jsx-newline
         // react/jsx-no-bind
         // react/jsx-no-comment-textnodes
@@ -388,7 +388,7 @@ const jsConfig = {
         // react/jsx-no-literals
         // react/jsx-no-script-url
         // react/jsx-no-target-blank
-        // react/jsx-no-undef
+        'react/jsx-no-undef': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
         // react/jsx-no-useless-fragment
         // react/jsx-one-expression-per-line
         // react/jsx-pascal-case
@@ -396,25 +396,12 @@ const jsConfig = {
         // react/jsx-props-no-spreading
         // react/jsx-sort-default-props
         // react/jsx-sort-props
-        // react/jsx-space-before-closing
-        // react/jsx-tag-spacing
-        // react/jsx-uses-react
-        // react/jsx-uses-vars
+        'react/jsx-space-before-closing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#tag-spacing // TODO: Fix deprecated.
+        'react/jsx-tag-spacing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#tag-spacing
+        'react/jsx-uses-react': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
+        'react/jsx-uses-vars': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
         // react/jsx-wrap-multiline
-        // #endregion
-
-        // TODO: JSX - Doc.
-        'react/jsx-max-props-per-line': [WARN, { maximum: 2 }],
-        'react/react-in-jsx-scope': [WARN],
-        'react/jsx-uses-react': [WARN],
-        'react/display-name': [ERROR],
-        'react/jsx-curly-spacing': [WARN],
-        'react/jsx-no-undef': [WARN],
-        'react/jsx-space-before-closing': [WARN], // TODO: Fix deprecated.
-        'react/jsx-tag-spacing': [WARN],
-        'react/jsx-uses-vars': [WARN],
-        'react/no-unknown-property': [WARN],
-        'react/jsx-fragments': [WARN, 'element'],
+        // #endregion 
     },
 };
 
