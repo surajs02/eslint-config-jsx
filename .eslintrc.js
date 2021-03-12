@@ -94,7 +94,7 @@ const jsConfig = {
         // no-case-declarations
         // no-constructor-return
         // no-div-regex
-        'no-else-return': [WARN], // SOURCE: SOURCE: https://github.com/surajs02/jsx-codeguide#simple-control-paths..
+        'no-else-return': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#simple-control-paths..
         // no-empty-function
         // no-empty-pattern
         // no-eq-null
@@ -164,12 +164,12 @@ const jsConfig = {
         // no-delete-var
         // no-label-var
         // no-restricted-globals
-        'no-shadow': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#immutable-variables.
+        'no-shadow': [OFF], // TODO: Doc.
         // no-shadow-restricted-names
         'no-undef': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
         // no-undef-init
         // no-undefined
-        'no-unused-vars': [WARN, { args: 'all', argsIgnorePattern: '^__' }], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-variables.
+        'no-unused-vars': [WARN, { args: 'all', argsIgnorePattern: '^_.*' }], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-variables.
         'no-use-before-define': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
         // #endregion
 
@@ -412,7 +412,7 @@ const INCOMPAT_JS_RULES = [
     'comma-dangle',
     'comma-spacing',
     'default-param-last',
-    'dot-notation',
+    // 'dot-notation', // TODO: Restore when fixed - @typescript-eslint seems to pass TS-only options to the js version of this rule, which breaks this config.
     'func-call-spacing',
     'indent',
     'init-declarations',
@@ -496,7 +496,7 @@ jsConfig.overrides = [
             // @typescript-eslint/consistent-type-imports
             // @typescript-eslint/explicit-function-return-type
             // @typescript-eslint/explicit-member-accessibility
-            // @typescript-eslint/explicit-module-boundary-types
+            '@typescript-eslint/explicit-module-boundary-types': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-inference.
             '@typescript-eslint/member-delimiter-style': [WARN, { // Interface members must end in ';' unless singleline.
                 multiline: {
                     delimiter: 'semi',
@@ -516,7 +516,7 @@ jsConfig.overrides = [
                     selector: ['parameter'],
                     format: ['strictCamelCase'], // No consecutive capitals for camelCase.
                     filter: {
-                        regex: '^__.*', // Allows multiple unused params as '__x'.
+                        regex: '^_.*', // Allows private params like `_x` & multiple unused params as '__x'.
                         match: false,
                     },
                 },

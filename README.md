@@ -26,12 +26,22 @@ npx install-peerdeps --dev eslint-config-jsx
 Add this package's name to the `extends` section of your project's `.eslintrc.js` config file:
 
 ```js
-{
-  'extends': ['eslint-config-jsx'],
-  'rules': {
-    // Additional rules...
+modules.exports = {
+  extends: ['eslint-config-jsx'],
+  rules: {
+    // Override JS rules, e.g.:
+    // 'no-extra-semi': ['warn'],
   }
-}
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      rules: {
+        // Override TS rules, e.g.:
+        // '@typescript-eslint/no-extra-semi': ['warn'],
+      },
+    },
+  ],
+};
 ```
 
 ## Contributing
