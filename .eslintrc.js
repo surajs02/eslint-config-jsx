@@ -401,7 +401,7 @@ const jsConfig = {
         'react/jsx-uses-react': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
         'react/jsx-uses-vars': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
         // react/jsx-wrap-multiline
-        // #endregion 
+        // #endregion
     },
 };
 
@@ -472,7 +472,6 @@ jsConfig.overrides = [
         rules: {
             ...COMPAT_JS_RULES, // Add ts rules atop compat js since ts supersets js.
 
-            // TODO: TS extensions - Doc.
             // Fix incompat js rules for ts.
             ...INCOMPAT_JS_RULES.reduce(
                 (a, ruleName) => !Object.keys(jsConfig.rules).includes(ruleName) ? a : ({
@@ -483,7 +482,6 @@ jsConfig.overrides = [
                 {}
             ),
 
-            // TODO: TS - Doc.
             // #region TS.
             // @typescript-eslint/adjacent-overload-signatures
             // @typescript-eslint/array-type
@@ -528,48 +526,45 @@ jsConfig.overrides = [
             // @typescript-eslint/no-confusing-void-expression
             // @typescript-eslint/no-dynamic-delete
             // @typescript-eslint/no-empty-interface
-            '@typescript-eslint/no-explicit-any': [OFF], // Allow explicit any.
+            '@typescript-eslint/no-explicit-any': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-any.
             // @typescript-eslint/no-extra-non-null-assertion
             // @typescript-eslint/no-extraneous-class
-            '@typescript-eslint/no-floating-promises': [WARN, { ignoreVoid: true, ignoreIIFE: true }], // Most promises must be handled.
-            '@typescript-eslint/no-for-in-array': [WARN], // No iterating arrays like objects.
-            '@typescript-eslint/no-implicit-any-catch': [WARN, { allowExplicitAny: true }], // Catches must be explicit.
-            '@typescript-eslint/no-inferrable-types': [WARN], // Declared types must be non-inferable (reduces verbocity).
+            '@typescript-eslint/no-floating-promises': [WARN, { ignoreVoid: true, ignoreIIFE: true }], // SOURCE: https://github.com/surajs02/jsx-codeguide#ts-graceful-async.
+            '@typescript-eslint/no-for-in-array': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-iteration.
+            '@typescript-eslint/no-implicit-any-catch': [WARN, { allowExplicitAny: true }], // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-catches.
+            '@typescript-eslint/no-inferrable-types': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-inference.
             // @typescript-eslint/no-invalid-void-type
-            '@typescript-eslint/no-misused-new': [WARN], // No `new` interfaces/ctors.
+            '@typescript-eslint/no-misused-new': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#abstract-inferfaces.
             // @typescript-eslint/no-misused-promises
             // @typescript-eslint/no-namespace
             // @typescript-eslint/no-non-null-asserted-optional-chain
             // @typescript-eslint/no-non-null-assertion
             // @typescript-eslint/no-parameter-properties
-            '@typescript-eslint/no-require-imports': [OFF], // Allow `require` imports for js interop.
+            '@typescript-eslint/no-require-imports': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#ts-imports.
             // @typescript-eslint/no-this-alias
             // @typescript-eslint/no-type-alias
-
-            // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals..
-            '@typescript-eslint/no-unnecessary-boolean-literal-compare': [WARN], // Disallow explicit literal boolean conditional aka no `a : boolean; a === true`.
-
-            '@typescript-eslint/no-unnecessary-condition': [WARN], // Disallow conditionals where the value is always truthy/falsy aka no `a : []; if (a)`.
+            '@typescript-eslint/no-unnecessary-boolean-literal-compare': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals.
+            '@typescript-eslint/no-unnecessary-condition': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-boolean-conditionals.
             // @typescript-eslint/no-unnecessary-qualifier
             // @typescript-eslint/no-unnecessary-type-arguments
-            '@typescript-eslint/no-unnecessary-type-assertion': [WARN], // Type casts must change type.
+            '@typescript-eslint/no-unnecessary-type-assertion': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-type-cast.
             // @typescript-eslint/no-unnecessary-type-constraint
             // @typescript-eslint/no-unsafe-assignment
             // @typescript-eslint/no-unsafe-call
             // @typescript-eslint/no-unsafe-member-access
             // @typescript-eslint/no-unsafe-return
             // @typescript-eslint/no-var-requires
-            '@typescript-eslint/non-nullable-type-assertion-style': [WARN], // Disallow using casting to non-null aka use `maybe!` over `maybe as string`.
+            '@typescript-eslint/non-nullable-type-assertion-style': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-type-cast.
             '@typescript-eslint/prefer-as-const': [WARN], // TS version of 'prefer-const'.
             // @typescript-eslint/prefer-enum-initializers
-            '@typescript-eslint/prefer-for-of': [WARN], // Disallow verbose obsolete index usage.
+            '@typescript-eslint/prefer-for-of': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-iteration.
             // @typescript-eslint/prefer-function-type
-            '@typescript-eslint/prefer-includes': [WARN], // Disallow obsolete `indexOf`.
+            '@typescript-eslint/prefer-includes': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#pure-functions.
             // @typescript-eslint/prefer-literal-enum-member
             // @typescript-eslint/prefer-namespace-keyword
             // @typescript-eslint/prefer-nullish-coalescing
             // @typescript-eslint/prefer-optional-chain
-            '@typescript-eslint/prefer-readonly': [WARN], // Members only mutated by ctor must be readonly.
+            '@typescript-eslint/prefer-readonly': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#immutable-members.
             // @typescript-eslint/prefer-readonly-parameter-types
             // @typescript-eslint/prefer-reduce-type-parameter
             // @typescript-eslint/prefer-regexp-exec
@@ -580,9 +575,7 @@ jsConfig.overrides = [
             // @typescript-eslint/restrict-plus-operands
             // @typescript-eslint/restrict-template-expressions
             // @typescript-eslint/sort-type-union-intersection-members
-
-            // SOURCE: https://github.com/surajs02/jsx-codeguide#implicit-boolean-conditionals..
-            '@typescript-eslint/strict-boolean-expressions': [WARN, {
+            '@typescript-eslint/strict-boolean-expressions': [WARN, { // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-conditionals.
                 allowString: false,
                 allowNumber: false,
                 allowNullableObject: false,
@@ -592,7 +585,6 @@ jsConfig.overrides = [
                 allowAny: false,
                 allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
             }],
-
             // @typescript-eslint/switch-exhaustiveness-check
             // @typescript-eslint/triple-slash-reference
             '@typescript-eslint/type-annotation-spacing': [WARN, {
@@ -600,14 +592,14 @@ jsConfig.overrides = [
                 before: true,
                 after: true,
                 overrides: {
-                    colon: { // Type declaration colons are only appended with space.
+                    colon: { // SOURCE: https://github.com/surajs02/jsx-codeguide#type-spacing.
                         before: false,
                         after: true,
                     },
                 },
             }],
             // @typescript-eslint/typedef
-            '@typescript-eslint/unbound-method': [WARN], // Disallow calling unbound methods by ref as they're scopeless (aka terrible for functional).
+            '@typescript-eslint/unbound-method': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#pure-functions.
             // @typescript-eslint/unified-signature
             // #endregion
         },
