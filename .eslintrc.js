@@ -578,7 +578,7 @@ jsConfig.overrides = [
             '@typescript-eslint/strict-boolean-expressions': [WARN, { // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-conditionals.
                 allowString: false,
                 allowNumber: false,
-                allowNullableObject: false,
+                allowNullableObject: true, // Enabled to allow passing boolean functions.
                 allowNullableBoolean: false,
                 allowNullableString: false,
                 allowNullableNumber: false,
