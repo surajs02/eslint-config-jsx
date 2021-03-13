@@ -1,6 +1,6 @@
 # eslint-config-jsx
 
-ESLint shareable config based on [JSX Codeguide] where relevant eslint rules extend recommended eslint/react/typescript rules to enforce the codeguide to improve code maintainability for JS/JSX & TS/TSX projects.
+ESLint shareable config based on [JSX Codeguide] where relevant eslint rules extend recommended eslint/react/typescript rules whilst enforcing the codeguide to improve code maintainability for JS/JSX & TS/TSX projects.
 
 ## Installation
 Ensure eslint is installed before installing this package:
