@@ -10,7 +10,7 @@
     "testTs": "npm run compileTs && node ./out/test/testTs.js",
     "preDeploy": "fail-on-git-dirty && npm test",
     "publish": "npm run preDeploy && npm publish",
-    "deployPatch": "npm run preDeploy && npm version patch && npm publish",
+    "deployPatch": "npm run preDeploy && npm version patch && npm run publish",
     "dumpRules": "eslint --print-config ./eslintrc.js > ./out/rules.json && code ./out/rules.json"
   },
   "repository": {
