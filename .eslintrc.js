@@ -396,7 +396,7 @@ const jsConfig = {
         // react/jsx-props-no-spreading
         // react/jsx-sort-default-props
         // react/jsx-sort-props
-        'react/jsx-space-before-closing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#tag-spacing // TODO: Fix deprecated.
+        // 'react/jsx-space-before-closing' // DEPREACATED over `react/jsx-tag-spacing`.
         'react/jsx-tag-spacing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#tag-spacing
         'react/jsx-uses-react': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
         'react/jsx-uses-vars': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#predictable-initial-values.
