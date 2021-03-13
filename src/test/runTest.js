@@ -13,6 +13,7 @@ const equal = (a, e, m) => strictEqual(a, e, `Test failed: ${m}`);
         const res = (await eslint.lintFiles([
             './testFile.js',
             './testFizzBuzz.js',
+            './testTs.ts',
         ]));
         console.debug('Lint result', res);
         res.forEach(({ errorCount, warningCount }) => {
