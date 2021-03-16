@@ -9,9 +9,8 @@
     "compileTs": "tsc -p .",
     "testTs": "npm run compileTs && node ./out/test/testTs.js",
     "preDeploy": "fail-on-git-dirty && npm test && npm pack --dry-run",
-    "validPublish": "npm run preDeploy && npm publish",
-    "deployMajor": "npm version major && npm run validPublish",
-    "deployPatch": "npm version patch && npm run validPublish",
+    "deployMajor": "npm run preDeploy && npm version major && npm publish",
+    "deployPatch": "npm run preDeploy && npm version patch && npm publish",
     "dumpRules": "eslint --print-config ./eslintrc.js > ./out/rules.json && code ./out/rules.json"
   },
   "repository": {
