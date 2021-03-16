@@ -43,7 +43,8 @@
   },
   "files": [
     "index.js",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "tsconfig.json"
   ],
   "devDependencies": {
     "typescript": "^4.1.5",

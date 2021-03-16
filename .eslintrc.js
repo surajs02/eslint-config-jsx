@@ -506,7 +506,7 @@ jsConfig.overrides = [
                     delimiter: 'semi',
                     requireLast: false,
                 },
-                multilineDetection: 'brackets',
+                // multilineDetection: 'brackets', // NOTE: `multilineDetection` seems to break when published.
             }],
             // @typescript-eslint/member-ordering
             // @typescript-eslint/method-signature-style
