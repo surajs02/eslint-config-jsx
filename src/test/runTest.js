@@ -7,7 +7,7 @@ const equal = (a, e, m) => strictEqual(a, e, `Test failed: ${m}`);
     try {
         const eslint = new ESLint({
             cwd: __dirname,
-            overrideConfigFile: '../index.js',
+            overrideConfigFile: '../../index.js',
         });
 
         const res = (await eslint.lintFiles([
