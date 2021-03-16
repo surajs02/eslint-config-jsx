@@ -2,15 +2,16 @@
   "name": "eslint-config-jsx",
   "version": "2.0.0",
   "description": "ESLint shareable config for Suraj's JSX Codeguide",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "node ./src/test/runTest.js",
     "testFile": "node ./src/test/testFile.js",
     "compileTs": "tsc -p .",
     "testTs": "npm run compileTs && node ./out/test/testTs.js",
-    "preDeploy": "fail-on-git-dirty && npm test",
-    "publish": "npm run preDeploy && npm publish",
-    "deployPatch": "npm run preDeploy && npm version patch && npm run publish",
+    "preDeploy": "fail-on-git-dirty && npm test && npm pack --dry-run",
+    "validPublish": "npm run preDeploy && npm publish",
+    "deployMajor": "npm version major && npm run validPublish",
+    "deployPatch": "npm version patch && npm run validPublish",
     "dumpRules": "eslint --print-config ./eslintrc.js > ./out/rules.json && code ./out/rules.json"
   },
   "repository": {
