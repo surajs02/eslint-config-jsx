@@ -313,7 +313,7 @@ const jsConfig = {
         // react/button-has-type
         // react/default-props-match-prop-types
         // react/destructuring-assignment
-        'react/display-name': [ERROR], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
+        'react/display-name': [OFF],
         // react/forbid-component-props
         // react/forbid-dom-props
         // react/forbid-elements
@@ -349,7 +349,7 @@ const jsConfig = {
         // react/prefer-read-only-props
         // react/prefer-stateless-function
         'react/prop-types': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-types.
-        'react/react-in-jsx-scope': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
+        'react/react-in-jsx-scope': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#react-scoped-jsx.
         // react/require-default-props
         // react/require-optimization
         // react/require-render-return
@@ -369,9 +369,9 @@ const jsConfig = {
         // react/jsx-closing-tag-location
         'react/jsx-curly-brace-presence': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#attribute-curly-brackets-presence.
         // react/jsx-curly-newline
-        'react/jsx-curly-spacing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#jsx-curly-bracket-spacing
+        'react/jsx-curly-spacing': [WARN], // SOURCE: https://github.com/surajs02/jsx-codeguide#jsx-curly-bracket-spacing.
         // react/jsx-equals-spacing
-        // react/jsx-filename-extension
+        'react/jsx-filename-extension': [WARN, { allow: 'as-needed' }], // SOURCE: https://github.com/surajs02/jsx-codeguide#useful-jsx-files.
         // react/jsx-first-prop-new-line
         'react/jsx-fragments': [WARN, 'element'], // SOURCE: https://github.com/surajs02/jsx-codeguide#explicit-fragments.
         // react/jsx-handler-names
@@ -538,7 +538,7 @@ jsConfig.overrides = [
             // @typescript-eslint/no-misused-promises
             // @typescript-eslint/no-namespace
             // @typescript-eslint/no-non-null-asserted-optional-chain
-            // @typescript-eslint/no-non-null-assertion
+            '@typescript-eslint/no-non-null-assertion': [OFF],
             // @typescript-eslint/no-parameter-properties
             '@typescript-eslint/no-require-imports': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#ts-imports.
             // @typescript-eslint/no-this-alias

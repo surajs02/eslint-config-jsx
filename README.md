@@ -30,14 +30,21 @@ modules.exports = {
   extends: ['eslint-config-jsx'],
   rules: {
     // Override JS rules, e.g.:
-    // 'no-extra-semi': ['warn'],
+    // 'no-extra-semi': ['off'],
   }
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
       rules: {
         // Override TS rules, e.g.:
-        // '@typescript-eslint/no-extra-semi': ['warn'],
+        // '@typescript-eslint/no-extra-semi': ['off'],
+      },
+    },
+    {
+      files: ['**/*.jsx', '**/*.tsx'],
+      rules: {
+        // Override React rules, e.g.:
+        // '@react/jsx-key': ['off'],
       },
     },
   ],
