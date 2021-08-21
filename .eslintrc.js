@@ -538,7 +538,7 @@ jsConfig.overrides = [
             // @typescript-eslint/no-misused-promises
             // @typescript-eslint/no-namespace
             // @typescript-eslint/no-non-null-asserted-optional-chain
-            '@typescript-eslint/no-non-null-assertion': [OFF],
+            '@typescript-eslint/no-non-null-assertion': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#graceful-nil-assertion.
             // @typescript-eslint/no-parameter-properties
             '@typescript-eslint/no-require-imports': [OFF], // SOURCE: https://github.com/surajs02/jsx-codeguide#ts-imports.
             // @typescript-eslint/no-this-alias
